@@ -39,15 +39,24 @@
     </ul>
   </section>
 
-  <!-- Galeria de Fotos -->
-  <section id="galeria" class="galeria">
-    <h2>🖼️ Nossa galeria</h2>
-    <div class="grid">
-      <figure><img src="Fotos/foto1.jpeg" alt= "💕"><figcaption>💕</figcaption></figure>
-      <figure><img src="Fotos/foto2.jpeg" alt="Meu Amor" ><figcaption>Meu Amor</figcaption></figure>
-      <figure><img src="Fotos/foto3.jpeg" alt="Onde tudo começou!"><figcaption>Onde tudo começou</figcaption></figure>
-    </div>
-  </section>
+<!-- Galeria de Fotos -->
+<section id="galeria" class="galeria">
+  <h2>Nossa galeria</h2>
+  <div class="grid">
+    <figure>
+      <img src="Fotos/foto1.jpeg" alt="Primeiro momento">
+      <figcaption>Primeiro momento</figcaption>
+    </figure>
+    <figure>
+      <img src="Fotos/foto2.jpeg" alt="Meu Amor">
+      <figcaption>Meu Amor</figcaption>
+    </figure>
+    <figure>
+      <img src="Fotos/foto3.jpeg" alt="Onde tudo começou">
+      <figcaption>Onde tudo começou</figcaption>
+    </figure>
+  </div>
+</section>
 
   <footer class="rodape">
     <p>"Cada segundo com você é o meu favorito." 💕</p>
@@ -57,16 +66,29 @@
 
   <!-- Contador de dias -->
 <div class="contador">
-  Estamos juntos há <span id="dias"></span> dias 💕
+  Estamos juntos há <span id="dias"></span> dias, <span id="horas"></span> horas e <span id="minutos"></span> minutos 💕
 </div>
 
 <script>
-  // Contador de dias juntos (altere a data abaixo)
-  const dataInicio = new Date("2025/06/15"); // coloque a data que começaram a namorar
-  const hoje = new Date();
-  const diffTime = Math.abs(hoje - dataInicio);
-  const diffDays = Math.ceil(diffTime / (24 * 60 * 60 * 1000));
-  document.getElementById("dias").innerText = diffDays;
+  // Contador de dias juntos (sempre atualizado)
+  function atualizarContadorTempo() {
+    const dataInicio = new Date("2025/06/15"); // coloque a data que começaram a namorar
+    const agora = new Date();
+    const diffMs = agora - dataInicio;
+    const diffDias = Math.floor(diffMs / (24 * 60 * 60 * 1000));
+    const restoMs = diffMs % (24 * 60 * 60 * 1000);
+    const diffHoras = Math.floor(restoMs / (60 * 60 * 1000));
+    const restoMinMs = restoMs % (60 * 60 * 1000);
+    const diffMinutos = Math.floor(restoMinMs / (60 * 1000));
+    const spanDias = document.getElementById("dias");
+    const spanHoras = document.getElementById("horas");
+    const spanMinutos = document.getElementById("minutos");
+    if (spanDias) spanDias.innerText = diffDias;
+    if (spanHoras) spanHoras.innerText = diffHoras;
+    if (spanMinutos) spanMinutos.innerText = diffMinutos;
+  }
+  document.addEventListener('DOMContentLoaded', atualizarContadorTempo);
+  setInterval(atualizarContadorTempo, 60 * 1000); // atualiza a cada minuto
 
   // Corações flutuando
   function criarCoracao() {
@@ -110,6 +132,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
 
 
