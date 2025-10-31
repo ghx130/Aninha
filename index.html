@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nossos Momentos ❤️</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Fonte opcional do Google -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,123 +14,113 @@
     <a class="btn" href="#galeria">Ver nossas fotos</a>
   </header>
 
-<!-- Música em MP3 -->
- <section class="player">
+  <section class="player">
     <h2>🎶 Nossa música</h2>
-<div class="musica">
-  <audio controls autoplay loop>
-    <source src="Musicas/Nossa_Musica.mp3.mp3" type="audio/mp3">
-    Seu navegador não suporta áudio.
-  </audio>
-</div>
+    <div class="musica">
+      <audio id="musica" controls autoplay loop>
+        <source src="Musicas/Nossa_Musica.mp3.mp3" type="audio/mp3">
+        Seu navegador não suporta áudio.
+      </audio>
+    </div>
+  </section>
 
-<script src="script.js"></script>
-</body>
-</html>
-
-  <!-- Momentos -->
   <section class="momentos">
     <h2>📖 Momentos</h2>
     <ul>
-      <li><strong>06/04/2025</strong> — Nossa primeira conversa.</li>
-      <li><strong>15/06/2025</strong> — Onde tudo começou.</li>
-      <li><strong>25/09/2025</strong> — O dia que oficializamos nosso namoro.</li>
+      <li><strong>06/04/2025</strong> — Nossa Primeira Conversa.</li>
+      <li><strong>15/06/2025</strong> — O Começo De Tudo.</li>
+      <li><strong>26/09/2025</strong> — O dia que oficializamos nosso namoro.</li>
     </ul>
   </section>
 
-<!-- Galeria de Fotos -->
-<section id="galeria" class="galeria">
-  <h2>Nossa galeria</h2>
-  <div class="grid">
-    <figure>
-      <img src="Fotos/foto1.jpeg" alt="Primeiro momento">
-      <figcaption>Primeiro momento</figcaption>
-    </figure>
-    <figure>
-      <img src="Fotos/foto2.jpeg" alt="Meu Amor">
-      <figcaption>Meu Amor</figcaption>
-    </figure>
-    <figure>
-      <img src="Fotos/foto3.jpeg" alt="Onde tudo começou">
-      <figcaption>Onde tudo começou</figcaption>
-    </figure>
+  <section id="galeria" class="galeria">
+    <h2>Nossa galeria</h2>
+    <div class="album-cta">
+      <button id="abrirAlbumLarge" class="btn btn-large">📚 Ver Álbum de Momentos</button>
+    </div>
+    <div class="grid" aria-hidden="false">
+      <figure>
+        <img src="Fotos/foto1.jpeg" alt="Primeiro momento">
+        <figcaption>Primeiro momento</figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto2.jpeg" alt="Meu Amor">
+        <figcaption>Meu Amor</figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto3.jpeg" alt="Onde tudo começou">
+        <figcaption>Onde tudo começou</figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto4.jpeg" alt="">
+        <figcaption>O Grande Dia</figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto5.jpeg" alt="">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto6.jpeg" alt="">
+        <figcaption>Seu Momento</figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto7.jpeg" alt="">
+        <figcaption>Ísis</figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto8.jpeg" alt="">
+        <figcaption>Festa Halloween</figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto9.jpeg" alt="">
+        <figcaption>NOSSO DIA</figcaption>
+      </figure>
+      <figure>
+        <img src="Fotos/foto10.jpeg" alt="">
+        <figcaption>Minha Princesa</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div id="albumModal" class="album-modal hidden" aria-hidden="true">
+    <div class="album-overlay"></div>
+    <div class="album-content" role="dialog" aria-modal="true" aria-label="Álbum de fotos">
+      <button class="album-close" aria-label="Fechar álbum">✖</button>
+      <div class="album-main">
+        <button class="album-prev" aria-label="Imagem anterior">◀</button>
+        <img id="albumImg" src="Fotos/foto1.jpeg" alt="Foto do álbum">
+        <button class="album-next" aria-label="Próxima imagem">▶</button>
+      </div>
+      <div class="album-caption" id="albumCaption" aria-live="polite"></div>
+      <div class="album-thumbs" id="albumThumbs"></div>
+    </div>
   </div>
-</section>
+
+  <div class="contador" style="text-align:center; margin:18px 0;">
+    Estamos juntos há <span id="dias"></span> dias, <span id="horas"></span> horas e <span id="minutos"></span> minutos 💕
+  </div>
+
+  <div class="contador namoro" style="text-align:center; margin:6px 0 24px;">
+    Namorando Oficialmente há <span id="dias_namoro"></span> dias, <span id="horas_namoro"></span> horas e <span id="minutos_namoro"></span> minutos 💍
+  </div>
+
+  <div style="text-align:center; margin:18px 0;">
+    <button id="botaoSurpresa" class="surpresa">🎁 Clique aqui 💌</button>
+    <div id="mensagemSurpresa" role="status" aria-hidden="true" style="display:none; margin-top:12px;">
+      Amor, você é a melhor parte da minha vida ❤️
+    </div>
+  </div>
 
   <footer class="rodape">
     <p>"Cada segundo com você é o meu favorito." 💕</p>
   </footer>
 
+  <script src="captions.js"></script>
   <script src="script.js"></script>
 
-  <!-- Contador de dias -->
-<div class="contador">
-  Estamos juntos há <span id="dias"></span> dias, <span id="horas"></span> horas e <span id="minutos"></span> minutos 💕
-</div>
+</body>
+</html>
 
-<script>
-  // Contador de dias juntos (sempre atualizado)
-  function atualizarContadorTempo() {
-    const dataInicio = new Date("2025/06/15"); // coloque a data que começaram a namorar
-    const agora = new Date();
-    const diffMs = agora - dataInicio;
-    const diffDias = Math.floor(diffMs / (24 * 60 * 60 * 1000));
-    const restoMs = diffMs % (24 * 60 * 60 * 1000);
-    const diffHoras = Math.floor(restoMs / (60 * 60 * 1000));
-    const restoMinMs = restoMs % (60 * 60 * 1000);
-    const diffMinutos = Math.floor(restoMinMs / (60 * 1000));
-    const spanDias = document.getElementById("dias");
-    const spanHoras = document.getElementById("horas");
-    const spanMinutos = document.getElementById("minutos");
-    if (spanDias) spanDias.innerText = diffDias;
-    if (spanHoras) spanHoras.innerText = diffHoras;
-    if (spanMinutos) spanMinutos.innerText = diffMinutos;
-  }
-  document.addEventListener('DOMContentLoaded', atualizarContadorTempo);
-  setInterval(atualizarContadorTempo, 60 * 1000); // atualiza a cada minuto
-
-  // Corações flutuando
-  function criarCoracao() {
-    const coracao = document.createElement("div");
-    coracao.classList.add("heart");
-    coracao.innerHTML = "❤️";
-    coracao.style.left = Math.random() * 100 + "vw";
-    coracao.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(coracao);
-    setTimeout(() => { coracao.remove(); }, 6000);
-  }
-  setInterval(criarCoracao, 500);
-</script>
-
-<!-- BOTÃO SURPRESA -->
-<div style="text-align:center; margin:18px 0;">
-  <button id="botaoSurpresa" class="surpresa">🎁 Clique aqui 💌</button>
-  <div id="mensagemSurpresa" role="status" aria-hidden="true" style="display:none; margin-top:12px;">
-    Amor, você é a melhor parte da minha vida ❤️
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const botao = document.getElementById('botaoSurpresa');
-  const msg = document.getElementById('mensagemSurpresa');
-
-  if (!botao || !msg) {
-    console.warn('botaoSurpresa ou mensagemSurpresa não encontrados no DOM');
-    return;
-  }
-
-  botao.addEventListener('click', (ev) => {
-    ev.preventDefault(); // evita submit/links por acidente
-    const aberto = msg.classList.toggle('visible'); // alterna classe
-    // mostra/esconde com estilo inline (compatível)
-    msg.style.display = aberto ? 'block' : 'none';
-    msg.setAttribute('aria-hidden', aberto ? 'false' : 'true');
-    botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
-    if (aberto) msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-});
-</script>
 
 
 
